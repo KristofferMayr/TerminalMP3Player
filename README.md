@@ -20,3 +20,21 @@ TerminalMP3Player/
 └── third_party/
     └── minimp3/       Header-only MP3-Decoder
 ```
+
+## Bauen & Starten
+
+Benötigt: CMake, C-Compiler, PortAudio und ncurses (Arch: `sudo pacman -S cmake portaudio ncurses`, andere OS sollen das selbst rausfinden).
+
+```sh
+cmake -B build
+cmake --build build
+./build/tmp3 ~/Musik
+```
+
+| Taste     | Aktion                          |
+|-----------|---------------------------------|
+| ↑ / ↓     | Song auswählen                  |
+| Enter     | Ausgewählten Song abspielen     |
+| Leertaste | Pause / Weiter                  |
+| `s`       | Stopp (zurück auf 0:00)         |
+| `q`       | Beenden                         |
