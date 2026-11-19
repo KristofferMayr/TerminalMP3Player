@@ -55,6 +55,11 @@ int library_load(library *lib, const char *dir) {
         song *s = &lib->songs[lib->count];
         s->path = strdup(path);
         s->name = strrchr(s->path, '/') + 1;
+
+        id3_read(s->path, &s->tags);
+        if (s->tags.title[0] == '\0') // keine Tags -> Dateiname ohne .mp3
+            snprintf(s->tags.title, ID3_TEXT_SIZE, "%.*s", (int)strlen(s->name) - 4, s->name);
+
         lib->count++;
     }
     closedir(d);

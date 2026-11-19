@@ -37,4 +37,6 @@ cmake --build build
 | Enter     | Ausgewählten Song abspielen     |
 | Leertaste | Pause / Weiter                  |
 | `s`       | Stopp (zurück auf 0:00)         |
+| ← / →     | 5 Sekunden zurück / vor spulen  |
+| `+` / `-` | Lautstärke lauter / leiser      |
 | `q`       | Beenden                         |

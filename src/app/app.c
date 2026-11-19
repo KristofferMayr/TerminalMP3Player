@@ -5,6 +5,9 @@
 #include "audio/player.h"
 #include "ui/ui.h"
 
+#define SEEK_STEP 5   // Sekunden
+#define VOLUME_STEP 5 // Prozent
+
 /* Hauptschleife: Taste lesen, Player steuern, neu zeichnen */
 void app_run(const library *lib) {
     int selected = 0;
@@ -14,7 +17,7 @@ void app_run(const library *lib) {
 
     while (running) {
         player_update();
-        ui_draw(lib, selected, playing, player_get_state(), message);
+        ui_draw(lib, selected, playing, message);
 
         int key = getch();
         switch (key) {
@@ -41,6 +44,18 @@ void app_run(const library *lib) {
             break;
         case 's':
             player_stop();
+            break;
+        case KEY_RIGHT:
+            player_seek(SEEK_STEP);
+            break;
+        case KEY_LEFT:
+            player_seek(-SEEK_STEP);
+            break;
+        case '+':
+            player_set_volume(player_get_volume() + VOLUME_STEP);
+            break;
+        case '-':
+            player_set_volume(player_get_volume() - VOLUME_STEP);
             break;
         case 'q':
             running = 0;

@@ -6,7 +6,6 @@
 
 void ui_init(void);
 void ui_close(void);
-void ui_draw(const library *lib, int selected, int playing, player_state state,
-             const char *message);
+void ui_draw(const library *lib, int selected, int playing, const char *message);
 
 #endif

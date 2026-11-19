@@ -13,6 +13,7 @@ add_executable(tmp3
     src/app/app.c
     src/audio/player.c
     src/library/library.c
+    src/library/id3.c
     src/ui/ui.c
 )
 
